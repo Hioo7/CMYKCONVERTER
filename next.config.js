@@ -23,6 +23,13 @@ const nextConfig = {
       },
     ];
   },
+  // Ensure Sharp works properly on Vercel
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals.push('sharp');
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
