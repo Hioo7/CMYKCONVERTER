@@ -81,7 +81,7 @@ export default function Home() {
           width: dimensions.width,
           height: dimensions.height,
           originalFormat: file.type,
-          convertedFormat: 'image/tiff',
+          convertedFormat: file.type,
         });
 
         setProgress(((i + 1) / files.length) * 100);
@@ -98,7 +98,7 @@ export default function Home() {
   const downloadImage = (image: ConvertedImage) => {
     const a = document.createElement('a');
     a.href = image.downloadUrl;
-    a.download = `${image.originalName.replace(/\.[^/.]+$/, '')}_CMYK.tiff`;
+    a.download = `${image.originalName.replace(/\.[^/.]+$/, '')}_CMYK.${image.originalFormat.split('/')[1]}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

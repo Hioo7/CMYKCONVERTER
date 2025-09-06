@@ -8,7 +8,7 @@ const nextConfig = {
     domains: []
   },
   experimental: {
-    serverComponentsExternalPackages: ['sharp', 'formidable']
+    serverComponentsExternalPackages: ['formidable']
   },
   // Ensure API routes work properly in deployment
   async headers() {
@@ -22,13 +22,6 @@ const nextConfig = {
         ],
       },
     ];
-  },
-  // Ensure Sharp works properly on Vercel
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals.push('sharp');
-    }
-    return config;
   },
 };
 
