@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 9%;
+    --foreground: 220 13% 98%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 13% 98%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 13% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 13% 98%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 13% 98%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 13% 70%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 220 13% 9%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 220 13% 98%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 217 91% 60%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .drag-active {
+    @apply border-primary bg-primary/10 scale-105;
+  }
+  
+  .upload-zone {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .image-preview {
+    @apply rounded-lg overflow-hidden shadow-2xl border border-white/10;
+  }
+  
+  .progress-bar {
+    @apply h-2 bg-primary/20 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary to-blue-400 transition-all duration-300 ease-out;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 2s infinite;
+}
