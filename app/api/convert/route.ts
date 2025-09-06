@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import sharp from 'sharp';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 // Handle OPTIONS request for CORS
 export async function OPTIONS(request: NextRequest) {

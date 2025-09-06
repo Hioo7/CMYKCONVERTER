@@ -23,6 +23,15 @@ const nextConfig = {
       },
     ];
   },
+  // Ensure both app and pages API routes work
+  async rewrites() {
+    return [
+      {
+        source: '/api/convert',
+        destination: '/api/convert',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
