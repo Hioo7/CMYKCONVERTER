@@ -8,7 +8,7 @@ const nextConfig = {
     domains: []
   },
   experimental: {
-    serverComponentsExternalPackages: ['sharp']
+    serverComponentsExternalPackages: ['sharp', 'formidable']
   },
   // Ensure API routes work properly in deployment
   async headers() {
